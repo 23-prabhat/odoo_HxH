@@ -82,7 +82,7 @@ export default function UsersPage() {
           <SheetHeader>
             <SheetTitle className="font-heading">Add New User</SheetTitle>
           </SheetHeader>
-          <div className="space-y-4 mt-6">
+          <div className="mt-2 space-y-4 px-4 pb-4">
             <div className="space-y-1.5">
               <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Full Name</label>
               <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Jane Doe" className="bg-background border-border" />
@@ -108,7 +108,7 @@ export default function UsersPage() {
                 {managers.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
               </select>
             </div>
-            <div className="flex gap-2 pt-2">
+            <div className="flex gap-2 pt-3">
               <Button variant="outline" className="flex-1" onClick={() => setSheetOpen(false)}>Cancel</Button>
               <Button className="flex-1" onClick={handleAdd} disabled={!form.name || !form.email || !form.password}>Add User</Button>
             </div>
