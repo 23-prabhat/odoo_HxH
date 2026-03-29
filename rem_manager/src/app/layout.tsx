@@ -1,15 +1,29 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Syne } from "next/font/google";
+import { Geist, Geist_Mono, Sora } from "next/font/google";
+
 import "./globals.css";
+import { AppProvider } from "@/context/app-context";
 import { cn } from "@/lib/utils";
 import { SessionProvider } from "next-auth/react";
 
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
-const syne = Syne({ subsets: ["latin"], variable: "--font-syne" });
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "ExpenseFlow",
-  description: "Reimbursement management, streamlined.",
+  title: "Smart Expense Management System",
+  description: "Expense submission, approvals, and workflow management",
 };
 
 export default function RootLayout({
@@ -20,10 +34,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full antialiased", jetbrainsMono.variable, syne.variable)}
+      className={cn(
+        geistSans.variable,
+        geistMono.variable,
+        sora.variable,
+        "h-full bg-background font-sans antialiased",
+      )}
     >
-      <body className="min-h-full flex flex-col font-mono">
-        <SessionProvider>{children}</SessionProvider>
+      <body className="min-h-full bg-background text-foreground">
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );
