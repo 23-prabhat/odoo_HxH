@@ -25,6 +25,7 @@
   --font-heading: var(--font-sora);
 }
 
+/* ── Light mode (default) ──────────────────────────────── */
 :root {
   --background: #f6f7f4;
   --foreground: #16181d;
